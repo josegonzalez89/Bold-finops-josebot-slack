@@ -1,0 +1,30 @@
+name: Ejecucion bot-finops-Joseslack
+
+on:
+  schedule:
+    # Corre a las 8:00 AM hora Colombia (13:00 UTC)
+    - cron: '0 13 * * *'
+  workflow_dispatch: 
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar librerías
+        run: pip install requests
+
+      - name: Ejecutar bot-finops-Joseslack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python bot.py
