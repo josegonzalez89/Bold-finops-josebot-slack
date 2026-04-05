@@ -24,7 +24,7 @@ def ejecutar_reporte():
 
         # 5. Construir el mensaje
         mensaje = (
-            f"🏦 *bot-finops-Joseslack* | Reporte Oficial\n"
+            f"🏦 *bot-finops* | Reporte Oficial\n"
             f"📅 *Vigencia desde:* {fecha_vigencia}\n"
             f"──────────────────────────\n"
             f"💵 *1 USD:* ${usd_cop:,.2f} COP\n"
